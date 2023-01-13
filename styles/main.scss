@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+:root {
+  --white: #eaeaea;
+  --black: #222;
+  --lightBlack: #1d1f20;
+  --red: #eb001b;
+  --yellow: #f79e1b;
+  --border-width: 3px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--lightBlack);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+  .box {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    height: 60vw;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    border-radius: var(--border-width);
+    &:after {
+      position: absolute;
+      content: "";
+      top: calc(-1 * var(--border-width));
+      left: calc(-1 * var(--border-width));
+      z-index: -1;
+      width: calc(100% + var(--border-width) * 2);
+      height: calc(100% + var(--border-width) * 2);
+      background: linear-gradient(
+        60deg,
+        hsl(224, 85%, 66%),
+        hsl(269, 85%, 66%),
+        hsl(314, 85%, 66%),
+        hsl(359, 85%, 66%),
+        hsl(44, 85%, 66%),
+        hsl(89, 85%, 66%),
+        hsl(134, 85%, 66%),
+        hsl(179, 85%, 66%)
+      );
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      border-radius: calc(2 * var(--border-width));
+      animation: moveGradient 4s alternate infinite;
+    }
+
+    &__card {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    &__bottom {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      order: 1;
+      margin-bottom: 10px;
+      &__left {
+        margin: 40px 0 20px 20px;
+        font-size: 6vw;
+      }
+    }
+
+    &__displayDateBox {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
+
+    &__circles {
+      display: flex;
+      margin: 40px 10px 0 0;
+    }
+
+    &__cardNumber {
+      display: flex;
+      justify-content: center;
+      text-align: left;
+      font-size: 7.8vw;
+      padding: 0.5rem;
+      overflow: hidden;
+      margin: 0 auto;
+
+      .responsiveCardNumber {
+        font-size: 22px;
+        @media (min-width: 390px) {
+          font-size: 28px;
+        }
+        @media (min-width: 430px) {
+          font-size: 30px;
+        }
+      }
+    }
+    &__redCircle,
+    &__yellowCircle {
+      height: 12vw;
+      width: 12vw;
+      border-radius: 50%;
+    }
+    &__redCircle {
+      z-index: 2;
+      position: relative;
+      left: 15px;
+      background: var(--red);
+    }
+    &__yellowCircle {
+      z-index: 1;
+      background: var(--yellow);
+    }
+
+    @media (min-width: 390px) {
+      .box {
+        width: 370px;
+        height: 240px;
+        &__cardNumber {
+          font-size: 34px;
+        }
+        &__displayDateBox {
+          font-size: 24px;
+        }
+        &__bottom {
+          &__left {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+    @media (min-width: 430px) {
+      width: 400px;
+      height: 270px;
+      .box {
+        &__redCircle,
+        &__yellowCircle {
+          height: 50px;
+          width: 50px;
+        }
+        &__cardNumber {
+          font-size: 36px;
+        }
+        &__bottom {
+          &__left {
+            margin: 40px 0 0 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .data {
+    display: flex;
+    margin-top: 5rem;
+    &__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      color: var(--white);
+
+      input {
+        outline: none;
+        background: none;
+        border: 1px solid var(--white);
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1rem;
+        color: var(--white);
+        padding: 10px;
+        width: 70vw;
+        transition: 1s all ease-in-out;
+        border: 1px solid var(--white);
+        @media (min-width: 270px) {
+          width: 250px;
+        }
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+      }
+    }
+
+    &__inputExpDate {
+      display: flex;
+      gap: 0.5rem;
+
+      input {
+        width: 3rem;
+      }
+    }
+  }
+}

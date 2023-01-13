@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Card App</title>
+  <link rel="stylesheet" href="dist/main.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <div class="box__card">
+        <div class="box__bottom">
+          <div class="box__bottom__left">
+            <div class="box__displayDateBox">
+              <p class="box__displayExpDate__displayMonth">00</p>
+              <p>/</p>
+              <p class="box__displayExpDate__displayYear">00</p>
+            </div>
+            <div class="box__cardHolder">
+              <p class="box__cardHolder__displayCardHolder">John Smith</p>
+            </div>
+          </div>
+          <div class="box__circles">
+            <div class="box__redCircle"></div>
+            <div class="box__yellowCircle"></div>
+          </div>
+        </div>
+
+        <div class="box__cardNumber">
+          <p class="box__cardNumber__displayCardNumber">1234 5678 9012 1234</p>
+        </div>
+      </div>
+    </div>
+    <div class="data">
+      <div class="data__form">
+        <input type="number" name="cardNumber" class="data__form__cardNumber" placeholder="card number"
+          autocomplete="off" maxlength="16"
+          oninput="this.value.length > this.maxLength ? this.value = this.value.slice(0, this.maxLength) : false"
+          required />
+        <input type="text" name="cardHolder" class="data__form__cardHolder" placeholder="card holder" autocomplete="off"
+          maxlength="15" required />
+        <div class="data__inputExpDate">
+          <input type="number" name="monthExp" class="data__form__monthExp" placeholder="MM" autocomplete="off" min="1"
+            max="12" maxlength="2"
+            oninput="this.value.length > this.maxLength ? this.value = this.value.slice(0, this.maxLength) : false"
+            required />
+          <input type="number" name="monthExp" class="data__form__yearExp" placeholder="YY" autocomplete="off" min="22"
+            max="25" maxlength="2"
+            oninput="this.value.length > this.maxLength ? this.value = this.value.slice(0, this.maxLength) : false"
+            required />
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
