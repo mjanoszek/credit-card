@@ -31,7 +31,7 @@ const pad = (num: number, size: number): string => {
   return s;
 };
 
-const enterCardHolder = () =>  {
+const enterCardHolder = () => {
   displayCardHolder.textContent = cardHolderInput.value;
   displayCardHolder.textContent == "" &&
     (displayCardHolder.textContent = "John Smith");
@@ -44,7 +44,9 @@ const enterCardNumber = () => {
   cardNumberInput.value == "" &&
     (displayCardNumber.textContent = "#### #### #### ####");
   displayCardNumber.textContent == "#### #### #### ####" &&
-    displayCardNumber.classList.add("responsiveCardNumber");
+    displayCardNumber.classList.add("hashCardNumber");
+  displayCardNumber.textContent !== "#### #### #### ####" &&
+    displayCardNumber.classList.remove("hashCardNumber")
   displayCardNumber.textContent == "1000 0000 0000 0000 0" &&
     (displayCardNumber.textContent = "9999 9999 9999 9999");
 };
