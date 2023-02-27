@@ -5,8 +5,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Credit Card Form" />
   <title>Credit Card App</title>
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" type="image/x-icon" href="./assets/credit-card-icon.ico">
+
 </head>
 
 <body>
@@ -42,7 +45,7 @@
           oninput="this.value.length > this.maxLength ? this.value = this.value.slice(0, this.maxLength) : false"
           required />
         <input type="text" name="cardHolder" class="data__form__cardHolder" placeholder="card holder" autocomplete="off"
-          maxlength="15" required />
+          maxlength="18" required />
         <div class="data__inputExpDate">
           <input type="number" name="monthExp" class="data__form__monthExp" placeholder="MM" autocomplete="off" min="1"
             max="12" maxlength="2"
